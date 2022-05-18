@@ -1,6 +1,6 @@
 package BLL;
 
-import entity.Tipoutilizador;
+import entity.Categoria;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -8,97 +8,97 @@ import javax.persistence.Query;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TipoutilizadorBLL {
+public class CategoriaBLL {
     private static final String PERSISTENCE_UNIT_NAME = "default";
     private static EntityManagerFactory factory = null;
     private static EntityManager em = null;
 
-    public static void create(Tipoutilizador tipouti){
+    public static void create(Categoria cat){
         if(factory == null)
             factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
         if (em == null) em = factory.createEntityManager();
 
         em.getTransaction().begin();
-        em.persist(tipouti);
+        em.persist(cat);
         em.getTransaction().commit();
     }
 
-    public static Tipoutilizador read(String descricao){
-        Tipoutilizador tipouti = null;
+    public static Categoria read(String estado){
+        Categoria cat = null;
         if(factory == null)
             factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
         if (em == null) em = factory.createEntityManager();
 
-        Query q1 = em.createNamedQuery("TipoUtilizador.findByDescricao");
-        q1.setParameter("descricao", descricao);
+        Query q1 = em.createNamedQuery("Categoria.findByEstado");
+        q1.setParameter("estado", estado);
         Object obj = q1.getSingleResult();
 
         if(obj != null){
-            tipouti = ((Tipoutilizador)obj);
+            cat = ((Categoria)obj);
         }
         else
             return null;
 
 
-        return tipouti;
+        return cat;
     }
 
-    public static List<Tipoutilizador> readAll(){
-        List<Tipoutilizador> listaTipouti = new ArrayList<>();
+    public static List<Categoria> readAll(){
+        List<Categoria> listaCat = new ArrayList<>();
         if(factory == null)
             factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
         if (em == null) em = factory.createEntityManager();
 
-        Query q1 = em.createNamedQuery("TipoUtilizador.findAll");
+        Query q1 = em.createNamedQuery("Categoria.findAll");
         List<Object> result = q1.getResultList();
 
-        for(Object tipouti : result){
-            listaTipouti.add((Tipoutilizador) tipouti);
+        for(Object cat : result){
+            listaCat.add((Categoria) cat);
         }
 
-        return listaTipouti;
+        return listaCat;
     }
 
-    public static List<Tipoutilizador> readAll(String descricao){
-        List<Tipoutilizador> listaTipouti = new ArrayList<>();
+    public static List<Categoria> readAll(String estado){
+        List<Categoria> listaCat = new ArrayList<>();
         if(factory == null)
             factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
         if (em == null) em = factory.createEntityManager();
 
-        Query q1 = em.createNamedQuery("Tipoutilizador.findByDescricao");
-        q1.setParameter("descricao", "%"+descricao+"%");
+        Query q1 = em.createNamedQuery("Categoria.findByEstado");
+        q1.setParameter("estado", "%"+estado+"%");
         List<Object> result = q1.getResultList();
 
-        for(Object tipouti : result){
-            listaTipouti.add((Tipoutilizador) tipouti);
+        for(Object cat : result){
+            listaCat.add((Categoria) cat);
         }
 
-        return listaTipouti;
+        return listaCat;
     }
 
-    public static void update(Tipoutilizador tipouti){
+    public static void update(Categoria cat){
         if(factory == null)
             factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
         if (em == null) em = factory.createEntityManager();
 
         em.getTransaction().begin();
-        em.merge(tipouti);
+        em.merge(cat);
         em.getTransaction().commit();
     }
 
-    public static void delete(Tipoutilizador tipouti){
+    public static void delete(Categoria cat){
         if(factory == null)
             factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
         if (em == null) em = factory.createEntityManager();
 
         em.getTransaction().begin();
-        em.remove(tipouti);
+        em.remove(cat);
         em.getTransaction().commit();
     }
 }

@@ -1,9 +1,16 @@
 package entity;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.math.BigInteger;
 
 @Entity
+@Table(name = "CATEGORIA")
+@XmlRootElement
+@NamedQueries({
+        @NamedQuery(name = "Categoria.findAll", query = "SELECT c FROM Categoria c"),
+        @NamedQuery(name = "Categoria.findAllByIdCategoria", query = "SELECT c FROM Categoria c WHERE c.idcategoria like :idcategoria"),
+        @NamedQuery(name = "Categoria.findByEstado", query = "SELECT c FROM Categoria c WHERE c.estado = :estado")})
 public class Categoria {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CATEGORIA_SEQ")

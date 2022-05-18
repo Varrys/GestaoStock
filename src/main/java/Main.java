@@ -1,9 +1,5 @@
-import BLL.TipoutilizadorBLL;
-import BLL.UtilizadorBLL;
-import entity.Categoria;
-import entity.Codpostal;
-import entity.Tipoutilizador;
-import entity.Utilizador;
+import BLL.*;
+import entity.*;
 
 import javax.persistence.*;
 import java.math.BigInteger;
@@ -49,13 +45,15 @@ public class Main {
 //            else System.out.println("Pois!");
 
 
-            List<Tipoutilizador> lista = TipoutilizadorBLL.readAll();
-            for(Tipoutilizador uti1 : lista) {
-//                if(Objects.equals(uti1.getIdutilizador(), BigInteger.valueOf(5))) {
-//                    uti1.setUsername("ySpectro");
-//                    UtilizadorBLL.update(uti1);
+            List<Categoria> lista = CategoriaBLL.readAll();
+            for(Categoria cat1 : lista) {
+//                if(Objects.equals(cat1.getIdcategoria(), BigInteger.valueOf(4))) {
+//                    cat1.setEstado("Feijão Branco");
+//                    CategoriaBLL.update(cat1);
+//                    CategoriaBLL.delete(cat1);
+
 //                }
-                System.out.println("ID " + uti1.getCodtipo() + " chama-se " + uti1.getDescricao());
+                System.out.println("ID " + cat1.getIdcategoria() + " chama-se " + cat1.getEstado());
             }
             transaction.commit();
         } finally {
