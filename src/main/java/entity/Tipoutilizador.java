@@ -10,7 +10,7 @@ import java.util.Collection;
 @XmlRootElement
 @NamedQueries({
         @NamedQuery(name = "TipoUtilizador.findAll", query = "SELECT c FROM Tipoutilizador c"),
-        @NamedQuery(name = "TipoUtilizador.findAllByCodTipo", query = "SELECT c FROM Tipoutilizador c WHERE c.codtipo like :codtipo"),
+        @NamedQuery(name = "TipoUtilizador.findByAllCodTipo", query = "SELECT c FROM Tipoutilizador c WHERE c.codtipo like :codtipo"),
         @NamedQuery(name = "TipoUtilizador.findByDescricao", query = "SELECT c FROM Tipoutilizador c WHERE c.descricao = :descricao")})
 public class Tipoutilizador {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
