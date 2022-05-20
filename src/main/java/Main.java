@@ -22,38 +22,32 @@ public class Main {
 //            Tipoutilizador obj = (Tipoutilizador)  q1.getSingleResult();
 //            System.out.println(obj);
 //
-//            Utilizador uti = new Utilizador();
-//            uti.setUsername("Varrys6");
-//            uti.setPassword("12345");
-//            uti.setTelefone(BigInteger.valueOf(914404299));
+//            Codpostal cod = new Codpostal();
+//            cod.setCodpostal("4925-574");
 //            uti.setTipoutilizadorByCodtipo(obj);
 
 
-
             //entityManager.persist(uti);
-            //UtilizadorBLL.create(uti);
-            //o
+//            CodpostalBLL.create(cod);
+            //ou
             //ClienteJpaController cliBll = new ClienteJpaController(factory);
             //cliBll.create(cli);
-            //
-            //
+
 //            System.out.println("ID criado: " + uti.getIdutilizador());
-//
 //            Utilizador ut2 = UtilizadorBLL.read(uti.getUsername());
-//
 //            if (uti.equals(ut2)) System.out.println("É o mesmo cliente!!!");
 //            else System.out.println("Pois!");
 
 
-            List<Categoria> lista = CategoriaBLL.readAll();
-            for(Categoria cat1 : lista) {
-//                if(Objects.equals(cat1.getIdcategoria(), BigInteger.valueOf(4))) {
-//                    cat1.setEstado("Feijão Branco");
-//                    CategoriaBLL.update(cat1);
+            List<Codpostal> lista = CodpostalBLL.readAll();
+            for(Codpostal cod1 : lista) {
+//                if(Objects.equals(cod1.getCodpostal(), "4925-547")) {
+//                    cod1.setDescricao("Outeiro");
+//                    CodpostalBLL.update(cod1);
 //                    CategoriaBLL.delete(cat1);
 
 //                }
-                System.out.println("ID " + cat1.getIdcategoria() + " chama-se " + cat1.getEstado());
+                System.out.println("ID " + cod1.getCodpostal() + " chama-se " + cod1.getLocalidade());
             }
             transaction.commit();
         } finally {

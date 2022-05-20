@@ -1,10 +1,18 @@
 package entity;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
+@Table(name = "CODPOSTAL")
+@XmlRootElement
 @NamedQueries({
-        @NamedQuery(name = "Codpostal.findAll", query = "SELECT c FROM Codpostal c")})
+        @NamedQuery(name = "Codpostal.findAll", query = "SELECT c FROM Codpostal c"),
+        @NamedQuery(name = "Codpostal.findByAllCodpostal", query = "SELECT c FROM Codpostal c WHERE c.codpostal like :codpostal"),
+        @NamedQuery(name = "Codpostal.findByLocalidade", query = "SELECT c FROM Codpostal c WHERE c.localidade = :localidade"),
+        @NamedQuery(name = "Codpostal.findByDescricao", query = "SELECT c FROM Codpostal c WHERE c.descricao = :descricao")})
+
+        //@NamedQuery(name = "Codpostal.findAll", query = "SELECT c FROM Codpostal c")})
 
 public class Codpostal {
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
