@@ -5,16 +5,16 @@
              version="2.2">
     <persistence-unit name="default">
 
-        <class>entity.Categoria</class>
-        <class>entity.Codpostal</class>
-        <class>entity.Encomenda</class>
-        <class>entity.Estadoencomenda</class>
-        <class>entity.Fornecedor</class>
-        <class>entity.Produto</class>
-        <class>entity.Produtoencomenda</class>
-        <class>entity.Saidaproduto</class>
-        <class>entity.Tipoutilizador</class>
-        <class>entity.Utilizador</class>
+        <class>com.example.backend.entity.Categoria</class>
+        <class>com.example.backend.entity.Codpostal</class>
+        <class>com.example.backend.entity.Encomenda</class>
+        <class>com.example.backend.entity.Estadoencomenda</class>
+        <class>com.example.backend.entity.Fornecedor</class>
+        <class>com.example.backend.entity.Produto</class>
+        <class>com.example.backend.entity.Produtoencomenda</class>
+        <class>com.example.backend.entity.Saidaproduto</class>
+        <class>com.example.backend.entity.Tipoutilizador</class>
+        <class>com.example.backend.entity.Utilizador</class>
         <properties>
             <property name="hibernate.connection.url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
             <property name="hibernate.connection.driver_class" value="oracle.jdbc.OracleDriver"/>
