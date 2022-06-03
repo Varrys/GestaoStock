@@ -4,6 +4,8 @@ import javax.persistence.*;
 import java.math.BigInteger;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name="Produtoencomenda.findAll", query = "SELECT c FROM Produtoencomenda c")})
 @IdClass(ProdutoencomendaPK.class)
 public class Produtoencomenda {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
